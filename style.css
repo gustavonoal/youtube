@@ -1,0 +1,412 @@
+/* Cores do Tema Escuro do YouTube (Aproximadas) */
+:root {
+    --bg-dark: #0f0f0f; /* Fundo principal */
+    --bg-component: #212121; /* Componentes, como a barra lateral e superior */
+    --text-primary: #ffffff;
+    --text-secondary: #aaaaaa;
+    --red-youtube: #ff0000;
+    --blue-highlight: #3ea6ff; /* Cor azul para links/destaques */
+    --separator-color: #303030;
+    --subscribe-btn-bg: #f1f1f1;
+    --subscribe-btn-text: #0f0f0f;
+    --member-btn-bg: #303030;
+    --member-btn-text: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    line-height: 1.5;
+}
+
+/* Estrutura Principal */
+.container {
+    display: flex;
+    /* Inclui um espaço para simular a barra de navegação superior (header) que não está no HTML principal */
+    padding-top: 60px; /* Espaço para o header */
+}
+
+/* --- SIMULAÇÃO DO HEADER (Barra Superior) --- */
+/* Na imagem, o header está fixo no topo. Aqui, vamos usar um pseudo-elemento ou estilizar o body/container para simular o padding */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px; /* Altura da barra */ 
+    z-index: 1000;
+    /* Adicionar aqui estilos para logo, busca e ícones da barra superior, se necessário */
+}
+
+/* --- Barra Lateral (Sidebar) --- */
+.sidebar {
+    width: 240px; /* Largura da barra lateral do YouTube */
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    padding: 15px 0;
+    height: calc(100vh - 60px); /* Altura total menos o header */
+    position: fixed;
+    top: 60px;
+    left: 0;
+    overflow-y: auto; /* Permite rolar a barra lateral */
+    border-right: 1px solid var(--separator-color); /* Separação sutil */
+}
+
+.sidebar nav ul {
+    list-style: none;
+    padding: 5px 0;
+}
+
+.sidebar nav ul li a {
+    display: flex;
+    align-items: center;
+    padding: 10px 24px;
+    text-decoration: none;
+    color: var(--text-primary);
+    font-size: 14px;
+    transition: background-color 0.2s;
+}
+
+.sidebar nav ul li a i {
+    margin-right: 20px;
+    width: 24px; /* Ajusta o alinhamento dos ícones */
+    text-align: center;
+}
+
+.sidebar nav ul li a:hover {
+    background-color: var(--separator-color);
+}
+
+.sidebar hr {
+    border: none;
+    border-top: 1px solid var(--separator-color);
+    margin: 8px 0;
+}
+
+.sidebar-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    padding: 8px 24px;
+    margin-top: 5px;
+}
+
+.more-youtube {
+    display: block;
+    padding: 10px 24px;
+    text-decoration: none;
+    color: var(--text-primary);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* --- Conteúdo Principal --- */
+.main-content {
+    margin-left: 240px; /* Desloca o conteúdo para a direita da sidebar */
+    flex-grow: 1;
+    padding: 0 24px; /* Padding lateral */
+    width: calc(100% - 240px);
+}
+
+.youtube-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--red-youtube);
+    width: 40px;
+    height: 28px;
+    border-radius: 8px;
+    color: white;
+    font-weight: 700;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.youtube-logo i {
+    margin: 0;
+    font-size: 18px;
+}
+
+/* Banner */
+.channel-banner {
+    width: 100%;
+    height: 200px; /* Altura aproximada do banner */
+    margin-top: 24px;
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: var(--bg-component); /* Cor de fundo caso a imagem não carregue */
+}
+
+.channel-banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Faz a imagem cobrir o espaço */
+    display: block;
+}
+
+/* Header do Canal */
+.channel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 0;
+}
+
+.channel-info-left {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.channel-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-right: 16px;
+    object-fit: cover;
+    background-color: var(--text-secondary); /* Simulação do pixel art */
+}
+
+.channel-text-info h1 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.handle-subs {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+}
+
+.description, .links {
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+.description a, .links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+/* Ações do Canal */
+.channel-actions button {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: background-color 0.2s;
+}
+
+.subscribe-btn {
+    background-color: var(--subscribe-btn-bg);
+    color: var(--subscribe-btn-text);
+}
+
+.member-btn {
+    background-color: var(--member-btn-bg);
+    color: var(--member-btn-text);
+    border: 1px solid var(--separator-color);
+}
+
+.subscribe-btn:hover {
+    background-color: #ccc;
+}
+.member-btn:hover {
+    background-color: #444;
+}
+
+/* Navegação da Página do Canal */
+.channel-nav {
+    border-bottom: 1px solid var(--separator-color);
+    margin-bottom: 24px;
+}
+
+.channel-nav ul {
+    list-style: none;
+    display: flex;
+}
+
+.channel-nav ul li a {
+    text-decoration: none;
+    color: var(--text-secondary);
+    padding: 8px 16px;
+    display: block;
+    font-size: 16px;
+    transition: color 0.2s;
+}
+
+.channel-nav ul li a:hover {
+    color: var(--text-primary);
+}
+
+.channel-nav ul li a.active {
+    color: var(--text-primary);
+    font-weight: 500;
+    position: relative;
+}
+
+.channel-nav ul li a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--text-primary);
+}
+
+.channel-separator {
+    border: none;
+    border-top: 1px solid var(--separator-color);
+    margin-bottom: 24px;
+}
+
+/* Seção de Membros */
+.members-section {
+    padding-bottom: 20px;
+}
+
+.members-section h2 {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.members-section p {
+    color: var(--text-secondary);
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.member-avatars {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 15px;
+}
+
+.avatar-placeholder {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: #444; /* Cor de simulação */
+    border: 2px solid var(--bg-dark);
+}
+
+.member-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--bg-dark);
+}
+
+.member-call-to-action {
+    background-color: var(--blue-highlight);
+    color: var(--bg-dark);
+    padding: 8px 16px;
+    border: none;
+    border-radius: 2px;
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.section-separator {
+    border: none;
+    border-top: 1px solid var(--separator-color);
+    margin: 20px 0;
+}
+
+/* Vídeo em Destaque */
+.featured-video {
+    display: flex;
+    gap: 24px;
+}
+
+.video-preview {
+    flex-basis: 50%; /* Ocupa 50% da largura */
+    position: relative;
+}
+
+.featured-video-image {
+    width: 100%;
+    height: 280px; /* Altura aproximada do player de vídeo */
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.video-placeholder {
+    width: 100%;
+    height: 280px;
+    background-color: #000;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    padding: 8px;
+    font-size: 14px;
+    color: #fff;
+    font-weight: 500;
+}
+
+.video-placeholder i {
+    margin-right: 10px;
+}
+
+.video-details {
+    flex-basis: 50%;
+}
+
+.channel-video-info {
+    display: flex;
+    gap: 12px;
+}
+
+.video-channel-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.video-text {
+    flex-grow: 1;
+}
+
+.video-title {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.4;
+    margin-bottom: 8px;
+}
+
+.video-metadata, .membership-info, .video-description {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-bottom: 5px;
+}
+
+.video-metadata span:not(:last-child)::after {
+    content: ' • ';
+}
+
+.membership-info a, .video-description a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.membership-info a {
+    color: var(--blue-highlight); /* Link de membro destacado */
+}
